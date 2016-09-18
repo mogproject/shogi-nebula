@@ -1,85 +1,42 @@
-var webpackConfig = require('./webpack.config.js');
+//実行時引数から、テスト対象ファイルを選ぶ
+// const args = process.argv;
+// args.splice(0, 4);
+
+//ポリフィルなどグローバルに入れておきたいものを置いておく。
+const polyfils = [
+    './node_modules/jquery/dist/jquery.min.js'
+];
+
+//var files = polyfils.concat(args);
 
 module.exports = function(config) {
     config.set({
-
-        // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
-
-
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['mocha', 'chai'],
-
-
-        // list of files / patterns to load in the browser
+        frameworks: ['jasmine'],
         files: [
-            'test/**/*.spec.ts'
+          'test/**/*.spec.ts'
         ],
-
-
-        // list of files to exclude
-        exclude: [
-        ],
-
-        // webpack configuration
-        webpack: {
-            devtool: 'eval-source-map',
-            debug: true,
-            module: webpackConfig.module,
-            resolve: webpackConfig.resolve
+        preprocessors: {
+            'test/**/*.spec.ts': ['webpack'],
         },
-
-        webpackMiddleware: {
-            quiet: true,
-            stats: {
-                colors: true
+        webpack: {
+            resolve: {
+                extensions: ['', '.ts', '.js', ".tsx"]
+            },
+            module: {
+                loaders: [{
+                    test: /\.tsx?$/,
+                    loader: "ts-loader"
+                }]
             }
         },
-
-
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-            'src/**/*.ts': ['webpack'],
-            'test/**/*.spec.ts': ['webpack']
-        },
-
-
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
-
-
-        // web server port
+        reporters: ['mocha'],
         port: 9876,
-
-
-        // enable / disable colors in the output (reporters and logs)
         colors: true,
-
-
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_DEBUG,
-
-
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: true,
-
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+        autoWatch: false,
         browsers: ['Chrome'],
-
-
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
-
-        // Concurrency level
-        // how many browser should be started simultaneous
+        singleRun: true,
         concurrency: Infinity
-    });
+    })
 };
