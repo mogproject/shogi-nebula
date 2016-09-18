@@ -1,21 +1,19 @@
 module.exports = {
-  entry: "./src/Index.ts",
   output: {
-    filename: "./dist/bundle.js"
+    filename: 'build/bundle.js'
   },
 
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
-
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: ["", ".ts", ".tsx", ".js"]
+    extensions: ['', '.ts', '.js'],
+    modulesDirectories: ['./src', 'node_modules']
   },
 
   module: {
     loaders: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-      { test: /\.tsx?$/, loader: "ts-loader" }
+      // { test: /\.ts$/, loader: 'babel-loader?presets[]=es2015!ts-loader', exclude: /node_modules/ }
+      { test: /\.ts$/, loader: 'ts-loader', exclude: /node_modules/ }
     ]
-  }
-};
+  },
+
+  devtool: 'source-map'
+}
