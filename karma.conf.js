@@ -1,20 +1,9 @@
-//実行時引数から、テスト対象ファイルを選ぶ
-// const args = process.argv;
-// args.splice(0, 4);
-
-//ポリフィルなどグローバルに入れておきたいものを置いておく。
-const polyfils = [
-    './node_modules/jquery/dist/jquery.min.js'
-];
-
-//var files = polyfils.concat(args);
-
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
         basePath: '',
         frameworks: ['jasmine'],
         files: [
-          'test/**/*.spec.ts'
+            'test/**/*.spec.ts'
         ],
         preprocessors: {
             'test/**/*.spec.ts': ['webpack'],
