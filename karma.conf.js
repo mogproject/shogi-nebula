@@ -6,7 +6,7 @@ module.exports = function (config) {
             'test/**/*.spec.ts'
         ],
         preprocessors: {
-            'test/**/*.spec.ts': ['webpack'],
+            'test/**/*.spec.ts': ['webpack']
         },
         webpack: {
             resolve: {

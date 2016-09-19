@@ -10,13 +10,13 @@ $(NODE_MODULES):
 	npm install
 
 $(BUILD): $(NODE_MODULES)
-	$(NPM_BIN)/webpack --bail
+	$(NPM_BIN)/webpack --progress --colors --bail
 
 clean:
 	rm -rf $(BUILD)
 
 test: $(BUILD)
-	$(NPM_BIN)/karma start
+	$(NPM_BIN)/karma start karma.conf.js
 
 uninstall: clean
 	rm -rf $(NODE_MODULES)
