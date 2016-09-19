@@ -1,6 +1,4 @@
-
-import Pos from './core/pos';
-
+import { Pos } from "./core/pos";
 
 var ctx:CanvasRenderingContext2D;
 
@@ -11,6 +9,8 @@ class Cell {
     private static readonly CELL_WIDTH = 40;
     private static readonly CELL_HEIGHT = 48;
     private static readonly CELL_STROKE = 2;
+
+
 
     constructor(private pos:Pos) {
     }
