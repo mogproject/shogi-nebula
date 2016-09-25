@@ -1,33 +1,27 @@
 {
   "name": "shogi-nebula",
   "version": "0.0.1",
-  "description": "TBD",
-  "main": "dist/app.js",
+  "description": ".",
+  "main": "./dist/bundle.js",
   "scripts": {
-    "build": "webpack --progress --colors --watch",
-    "build:prod": "webpack --config ./webpack.config-prod.js",
-    "test": "karma start karma.conf.js"
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mogproject/shogi-nebula.git"
   },
   "author": "Yosuke Mizutani",
   "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mogproject/shogi-nebula"
+  "bugs": {
+    "url": "https://github.com/mogproject/shogi-nebula/issues"
   },
+  "homepage": "https://github.com/mogproject/shogi-nebula#readme",
   "devDependencies": {
-    "jasmine": "2.5.2",
-    "@types/jasmine": "^2.2.33",
-    "chai": "3.5.0",
-    "karma": "1.3.0",
-    "karma-chrome-launcher": "2.0.0",
-    "karma-jasmine": "1.0.2",
-    "karma-mocha-reporter": "2.1.0",
-    "karma-webpack": "1.8.0",
-    "ts-loader": "0.8.2",
-    "typescript": "2.0.2",
-    "typings": "1.3.3",
-    "webpack": "1.13.2",
-    "ws": "1.1.1"
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^0.8.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
 }

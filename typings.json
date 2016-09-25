@@ -1,6 +1,6 @@
 {
-  "name": "shogi-nebula",
-  "dependencies": {
-    "debug": "registry:npm/debug#2.0.0+20160723033700"
+  "globalDependencies": {
+    "react": "registry:dt/react#0.14.0+20160923124221",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
   }
 }
